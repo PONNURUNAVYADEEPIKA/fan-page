@@ -1,0 +1,99 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOLLYWOOD Fan Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            background-image: url('My cat.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .header h1 {
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .message {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .message p {
+            margin: 0;
+        }
+        .message small {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>TOLLYWOOD Fan Book</h1>
+    </div>
+    <div class="container">
+        <form id="fanMessageForm">
+            <input type="text" id="nickname" placeholder="Nickname" required>
+            <textarea id="fanMessage" placeholder="Fan Message" required></textarea>
+            <button type="submit">Leave a fan message</button>
+        </form>
+        <div id="messages">
+            <div class="message">
+                <p>Love your new album!</p>
+                <small>— Breadboy9000</small>
+            </div>
+            <div class="message">
+                <p>You're the best!</p>
+                <small>— ClassicWonder19</small>
+            </div>
+            <div class="message">
+                <p>Marry me!</p>
+                <small>— Wonderbread10</small>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('fanMessageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nickname = document.getElementById('nickname').value;
+            var message = document.getElementById('fanMessage').value;
+            var messageHtml = '<div class="message"><p>' + message + '</p><small>— ' + nickname + '</small></div>';
+            document.getElementById('messages').innerHTML = messageHtml + document.getElementById('messages').innerHTML;
+            document.getElementById('nickname').value = '';
+            document.getElementById('fanMessage').value = '';
+        });
+    </script>
+</body>
+</html>
